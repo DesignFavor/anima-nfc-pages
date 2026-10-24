@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Authentic · Anima Désertique</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head><body>
+<div class="stage">
+  <video id="v" muted playsinline preload="auto"></video>
+  <div class="g-top"></div><div class="g-bot"></div>
+  <nav>
+    <a class="logo" href="#" id="home">ANIMA DÉSERTIQUE</a>
+    <a class="brand" href="#" id="home2">JAMALOIL</a>
+  </nav>
+  <div class="panel">
+    <div class="status"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.5"/><path d="M7 12.5l3.5 3.5L17 9"/></svg>AUTHENTIC &amp; ORIGINAL</div>
+    <h1 id="name"></h1>
+    <p class="sub" id="sub"></p>
+    <div class="rule"></div>
+    <p class="copy">This fragrance is verified as an authentic JAMALOIL creation, matured for five weeks through the Nectar Fusion process.</p>
+    <p class="tag">THE ORIGIN OF PURE ESSENCE</p>
+    <a class="btn" href="#" id="site">DISCOVER ANIMA DÉSERTIQUE</a>
+  </div>
+</div>
+<script>
+var SITE_URL="https://anima-project-five.vercel.app/";
+var C={"palm": {"name": "Palm Encensé", "sub": "Talisman of the soul", "pos": "50% 50%", "video": "palm.mp4", "poster": "palm.jpg"}, "rose": {"name": "Imperfect Rose", "sub": "Unrepeatable beauty", "pos": "52% 50%", "video": "rose.mp4", "poster": "rose.jpg"}, "peche": {"name": "Pêche Nude", "sub": "Nectar of light", "pos": "62% 50%", "video": "peche.mp4", "poster": "peche.jpg"}, "oud": {"name": "Oud Aura Sablé", "sub": "Inner light", "pos": "50% 50%", "video": "oud.mp4", "poster": "oud.jpg"}};
+/* Links: #palm  #rose  #peche  #oud */
+var k=(location.hash||"#palm").slice(1).toLowerCase();if(!C[k])k="palm";var c=C[k];
+var v=document.getElementById("v");
+document.getElementById("name").textContent=c.name;
+document.getElementById("sub").textContent=c.sub;
+document.title="Authentic · "+c.name;
+["site","home","home2"].forEach(function(i){document.getElementById(i).href=SITE_URL});
+v.style.objectPosition=c.pos;v.poster=c.poster;v.src=c.video;v.loop=false;
+var p=v.play();if(p&&p.catch)p.catch(function(){});
+document.addEventListener("click",function f(){if(v.paused&&!v.ended)v.play();document.removeEventListener("click",f)});
+</script></body></html>
